@@ -50,13 +50,17 @@ function windowResized(){
 }
 
 function rose(){
-  // stroke(255);
-  // line(0, -height, 0, height);
-  // line(-width, 0, width, 0);
+  stroke(50);
+  strokeWeight(0.5);
+  setLineDash([5, 5]);
+  line(0, -height, 0, height);
+  line(-width, 0, width, 0);
   stroke(h, 50, 50);
   strokeWeight(1);
   noFill();
+  
   beginShape();
+  setLineDash([0,0]);
   for (let i = 0; i < 361; i++){
     let k = i * d;
     let r = 300 * sin(n*k);
@@ -86,6 +90,10 @@ function rose(){
   if (h > 360){
     h = 0;
   }
+}
+
+function setLineDash(list) {
+  drawingContext.setLineDash(list);
 }
 
 function mousePressed(){
