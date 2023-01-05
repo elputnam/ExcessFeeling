@@ -6,6 +6,7 @@ let n = 0;
 let d = 0;
 let h = 0;
 let deg = 0;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 360, 100, 100, 100);
@@ -84,7 +85,7 @@ function rose(){
   endShape();
 
   n += 0.0001;
-  d += 0.0002;
+  d += 0.0005;
   h += 0.25;
 
   if (h > 360){
