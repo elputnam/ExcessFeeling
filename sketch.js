@@ -11,7 +11,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 360, 100, 100, 100);
   angleMode(DEGREES);
-  frameRate(30);
+  frameRate(20);
 }
 
 function draw() {
@@ -54,8 +54,8 @@ function rose(){
   stroke(50);
   strokeWeight(0.5);
   setLineDash([5, 5]);
-  line(0, -height, 0, height);
-  line(-width, 0, width, 0);
+  //line(0, -height, 0, height);
+  //line(-width, 0, width, 0);
   stroke(h, 50, 50);
   strokeWeight(1);
   noFill();
