@@ -1,20 +1,30 @@
 //Animation for Trio Tan
 
 //Based on code from Dan Shiffman https://editor.p5js.org/codingtrain/sketches/qa7RiptE9
+// growing roses
 
 let n = 0;
 let d = 0;
 let h = 0;
 let deg = 0;
 
+//CCapture
+// var capture = false; // default is to not capture frames, can be changed with button in browser
+var capturer = new CCapture({
+  format:'webm', 
+  workersPath: 'js/',
+  framerate: 20
+});
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1920, 1080);
   colorMode(HSB, 360, 100, 100, 100);
   angleMode(DEGREES);
   frameRate(20);
 }
 
 function draw() {
+  if (frameCount==1) capturer.start(); // start the animation capture
   background(180, 100, 10, 1);
   push();
   translate(width*.25, height*.25);
@@ -41,14 +51,18 @@ function draw() {
   rose();
   pop();
 
-
+  capturer.capture(document.getElementById('defaultCanvas0'));  
+  if (frameCount==7200){
+    save_record();
+  }
+  print(frameCount);
 
   
 }
 
-function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized(){
+//   resizeCanvas(windowWidth, windowHeight);
+// }
 
 function rose(){
   stroke(50);
@@ -97,7 +111,11 @@ function setLineDash(list) {
   drawingContext.setLineDash(list);
 }
 
-function mousePressed(){
-  let fs = fullscreen();
-  fullscreen(!fs);
+// function mousePressed(){
+//   let fs = fullscreen();
+//   fullscreen(!fs);
+// }
+
+function save_record() {
+  capturer.save();
 }
