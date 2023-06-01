@@ -26,30 +26,31 @@ function setup() {
 function draw() {
   if (frameCount==1) capturer.start(); // start the animation capture
   background(180, 100, 10, 1);
-  push();
-  translate(width*.25, height*.25);
-  rose();
-  pop();
+  // push();
+  // translate(width*.25, height*.25);
+  // rose();
+  // pop();
 
   push();
   translate(width*.5, height*.5);
+  scale(1.5);
   rose();
   pop();
 
-  push();
-  translate(width*.25, height*.75);
-  rose();
-  pop();
+  // push();
+  // translate(width*.25, height*.75);
+  // rose();
+  // pop();
 
-  push();
-  translate(width*.75, height*.25);
-  rose();
-  pop();
+  // push();
+  // translate(width*.75, height*.25);
+  // rose();
+  // pop();
 
-  push();
-  translate(width*.75, height*.75);
-  rose();
-  pop();
+  // push();
+  // translate(width*.75, height*.75);
+  // rose();
+  // pop();
 
   capturer.capture(document.getElementById('defaultCanvas0'));  
   if (frameCount==7200){
